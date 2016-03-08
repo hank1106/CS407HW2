@@ -40,7 +40,7 @@ class EventsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         events.append(Event(title: "birthday",month: "11" ,day: "06")!)
-        events.append(Event(title: "birthday",month: "03" ,day: "08")!)
+        events.append(Event(title: "birthday",month: "03" ,day: "07")!)
         return events.count
     }
 
