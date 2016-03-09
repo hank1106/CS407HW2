@@ -7,14 +7,20 @@
 //
 
 import UIKit
+import CoreData
 
 class EventsTableViewController: UITableViewController {
 
-    var events = [Event]()
+    var events = [String]()
     var day = Int()
     var month = Int()
+    var test = String()
     
     
+    @IBAction func AddEvent(sender: AnyObject) {
+         self.performSegueWithIdentifier("toAdd", sender: self)
+    }
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,23 +40,28 @@ class EventsTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
-
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        events.append(Event(title: "birthday",month: "11" ,day: "06")!)
-        events.append(Event(title: "birthday",month: "03" ,day: "07")!)
         return events.count
     }
-
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("event", forIndexPath: indexPath)
         let event = events[indexPath.row]
-        cell.textLabel?.text = event.month + "/" + event.day
-        cell.detailTextLabel?.text = event.title
+        cell.textLabel?.text = event
         return cell
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        //let storyboard = UIStoryboard(name: "storyboard", bundle: nil);
+        //let days = storyboard.instantiateViewControllerWithIdentifier("DaysTableViewController") as! UITableViewController
+        //let destinationVC:DaysTableViewController = DaysTableViewController()
+        
+        self.performSegueWithIdentifier("toAdd", sender: nil)
+    }
+
+
 
     /*
     // Override to support conditional editing of the table view.
@@ -86,15 +97,19 @@ class EventsTableViewController: UITableViewController {
         return true
     }
     */
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if (segue.identifier == "toAdd") {
+            let vc:AddEventViewController = segue.destinationViewController as! AddEventViewController
+            vc.month = month
+            vc.day = day
+        }
+
     }
-    */
 
 }

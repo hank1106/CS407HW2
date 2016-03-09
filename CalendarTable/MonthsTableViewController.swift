@@ -11,6 +11,7 @@ import UIKit
 class MonthsTableViewController: UITableViewController {
     var months: [String] = ["Jan", "Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
     var numDays = 0
+    var month = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,7 @@ class MonthsTableViewController: UITableViewController {
         //let days = storyboard.instantiateViewControllerWithIdentifier("DaysTableViewController") as! UITableViewController
         //let destinationVC:DaysTableViewController = DaysTableViewController()
         let row = indexPath.row
+        month = row + 1
         if ( row == 0 || row == 2 || row==4 || row==6 || row==7 || row==9 || row==11){
             numDays = 31
             //destinationVC.daysInt = numDays
@@ -112,6 +114,7 @@ class MonthsTableViewController: UITableViewController {
         if (segue.identifier == "toDate") {
             let vc:DaysTableViewController = segue.destinationViewController as! DaysTableViewController
             vc.daysInt = numDays
+            vc.month = month
         }
 
     }

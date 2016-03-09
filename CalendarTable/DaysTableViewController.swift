@@ -9,13 +9,12 @@
 import UIKit
 
 class DaysTableViewController: UITableViewController {
+    var month = Int()
     var daysInt = Int()
     var numDays = [String]()
     var row = Int()
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(daysInt)
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -97,9 +96,10 @@ class DaysTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "toEvent") {
+        if (segue.identifier == "toEvents") {
             let vc:EventsTableViewController = segue.destinationViewController as! EventsTableViewController
-            vc.day = row
+            vc.day = row + 1
+            vc.month = month
         }
 
     }

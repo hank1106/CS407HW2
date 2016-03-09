@@ -77,6 +77,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JeL-S1-rB8">
+                            <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Add Event"/>
+                            <connections>
+                                <segue destination="dBk-bW-0Ep" kind="show" identifier="toAdd" id="MSo-XC-sWj"/>
+                            </connections>
+                        </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="event" id="wC8-Gy-WvY">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
@@ -88,8 +96,8 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="ewk-uX-ZWI" id="fzg-WJ-std"/>
-                            <outlet property="delegate" destination="ewk-uX-ZWI" id="PiX-EL-k2e"/>
+                            <outlet property="dataSource" destination="ewk-uX-ZWI" id="jvu-gM-Bi0"/>
+                            <outlet property="delegate" destination="ewk-uX-ZWI" id="2rQ-8m-SVw"/>
                         </connections>
                     </tableView>
                     <toolbarItems/>
@@ -99,6 +107,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tvx-zr-2kB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2360" y="-386"/>
+        </scene>
+        <!--Add Event View Controller-->
+        <scene sceneID="ciZ-ph-25T">
+            <objects>
+                <viewController id="dBk-bW-0Ep" customClass="AddEventViewController" customModule="CalendarTable" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0iV-Xr-Exm"/>
+                        <viewControllerLayoutGuide type="bottom" id="QaZ-F2-I05"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CqL-Yu-yup">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3XB-3g-L7I">
+                                <rect key="frame" x="201" y="261" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Mj-ae-gRq">
+                                <rect key="frame" x="239" y="375" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="save:" destination="dBk-bW-0Ep" eventType="touchUpInside" id="BxS-0u-XOY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="TextTitle" destination="3XB-3g-L7I" id="RPN-Vq-eW2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pan-0v-Ffj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3049" y="-381"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BGH-Va-JNM">

@@ -7,17 +7,13 @@
 //
 
 import Foundation
+import CoreData
 
-class Event{
-    var title: String = ""
-    var month: String = ""
-    var day: String = ""
-    init? (title: String, month: String, day:String) {
-        self.title = title
-        self.month = month
-        self.day = day
-        
-        
-    }
-    
+
+class Event: NSManagedObject {
+
+        @NSManaged var month: String
+        @NSManaged var day: String
+        @NSManaged var title: String
+
 }
