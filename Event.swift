@@ -10,10 +10,25 @@ import Foundation
 import CoreData
 
 
-class Event: NSManagedObject {
+class Event : NSObject {
 
-        @NSManaged var month: String
-        @NSManaged var day: String
-        @NSManaged var title: String
+        var date: String
+        var title: String
+    
+    init(withTitle t: String, andDate d : String){
+        title = t
+        date = d
+    }
+    
+    init(withCoder coder:NSCoder){
+        date = coder.decodeObjectForKey("date") as! String
+        title = coder.decodeObjectForKey("title") as! String
+    }
+    
+    func encodeWithCoder(coder:NSCoder){
+        coder.encodeObject(date,forKey: "date")
+        coder.encodeObject(title,forKey: "title")
+        
+    }
 
 }

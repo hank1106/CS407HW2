@@ -18,27 +18,7 @@ class AddEventViewController: UIViewController {
     
     @IBOutlet weak var TextTitle: UITextField!
     
-    
-    @IBAction func save(sender: AnyObject) {
-        let entityDescription =
-        NSEntityDescription.entityForName("Event",
-            inManagedObjectContext: managedObjectContext)
-        
-        let event = Event(entity: entityDescription!,
-            insertIntoManagedObjectContext: managedObjectContext)
-        
-        event.setValue(month, forKey: "month")
-        event.setValue(day, forKey: "day")
-        event.setValue(title, forKey: "title")
-        
-        do {
-            try managedObjectContext.save()
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
-        }
 
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
