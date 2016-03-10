@@ -69,7 +69,7 @@
             </objects>
             <point key="canvasLocation" x="1641" y="-386"/>
         </scene>
-        <!--Events-->
+        <!--Title-->
         <scene sceneID="2vq-2k-Eip">
             <objects>
                 <tableViewController id="ewk-uX-ZWI" customClass="EventsTableViewController" customModule="CalendarTable" customModuleProvider="target" sceneMemberID="viewController">
@@ -77,14 +77,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JeL-S1-rB8">
-                            <rect key="frame" x="0.0" y="136" width="600" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Add Event"/>
-                            <connections>
-                                <segue destination="dBk-bW-0Ep" kind="show" identifier="toAdd" id="MSo-XC-sWj"/>
-                            </connections>
-                        </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="event" id="wC8-Gy-WvY">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
@@ -93,6 +85,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="dBk-bW-0Ep" kind="show" id="0dL-ms-pwy"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -101,7 +96,13 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Events" id="8e7-Kq-HRc"/>
+                    <navigationItem key="navigationItem" title="Title" id="bS2-Ga-2W9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="X4G-lY-dHc">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="ewk-uX-ZWI" id="0sZ-Ot-tOo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tvx-zr-2kB" userLabel="First Responder" sceneMemberID="firstResponder"/>

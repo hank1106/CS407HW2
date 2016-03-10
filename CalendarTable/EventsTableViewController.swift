@@ -17,8 +17,13 @@ class EventsTableViewController: UITableViewController {
     var test = String()
     
     
-    @IBAction func AddEvent(sender: AnyObject) {
-         self.performSegueWithIdentifier("toAdd", sender: self)
+
+    
+    @IBAction func addButtonPressed(sender : UIBarButtonItem){
+        let newEvent = "Test Event "
+        events.append(newEvent)
+        tableView.reloadData()
+        
     }
         
     override func viewDidLoad() {
@@ -40,7 +45,7 @@ class EventsTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -62,26 +67,23 @@ class EventsTableViewController: UITableViewController {
     }
 
 
-
-    /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
 
-    /*
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            events.removeAtIndex(indexPath.row)
+            let section = NSIndexSet(index:0)
+            tableView.reloadSections(section,withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.
