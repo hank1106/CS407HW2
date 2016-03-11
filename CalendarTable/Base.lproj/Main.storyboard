@@ -69,7 +69,7 @@
             </objects>
             <point key="canvasLocation" x="1641" y="-386"/>
         </scene>
-        <!--Title-->
+        <!--Events-->
         <scene sceneID="2vq-2k-Eip">
             <objects>
                 <tableViewController id="ewk-uX-ZWI" customClass="EventsTableViewController" customModule="CalendarTable" customModuleProvider="target" sceneMemberID="viewController">
@@ -85,9 +85,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="dBk-bW-0Ep" kind="show" id="0dL-ms-pwy"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -96,7 +93,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="bS2-Ga-2W9">
+                    <navigationItem key="navigationItem" title="Events" id="bS2-Ga-2W9">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="X4G-lY-dHc">
                             <connections>
                                 <action selector="addButtonPressed:" destination="ewk-uX-ZWI" id="0sZ-Ot-tOo"/>
@@ -108,41 +105,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tvx-zr-2kB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2360" y="-386"/>
-        </scene>
-        <!--Add Event View Controller-->
-        <scene sceneID="ciZ-ph-25T">
-            <objects>
-                <viewController id="dBk-bW-0Ep" customClass="AddEventViewController" customModule="CalendarTable" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="0iV-Xr-Exm"/>
-                        <viewControllerLayoutGuide type="bottom" id="QaZ-F2-I05"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="CqL-Yu-yup">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3XB-3g-L7I">
-                                <rect key="frame" x="201" y="261" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Mj-ae-gRq">
-                                <rect key="frame" x="239" y="375" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="save:" destination="dBk-bW-0Ep" eventType="touchUpInside" id="BxS-0u-XOY"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="TextTitle" destination="3XB-3g-L7I" id="RPN-Vq-eW2"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pan-0v-Ffj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3049" y="-381"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BGH-Va-JNM">

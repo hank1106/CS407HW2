@@ -19,15 +19,33 @@ class EventsTableViewController: UITableViewController {
 
     
     @IBAction func addButtonPressed(sender : UIBarButtonItem){
-        let newEvent = "Test Event "
         let defaultDate = "\(month)-\(day)"
-        let event = Event(withTitle: newEvent, andDate: defaultDate)
-        let encodedEvent = NSKeyedArchiver.archivedDataWithRootObject(event)
-        events.append(encodedEvent)
-        NSUserDefaults.standardUserDefaults().setObject(events, forKey: defaultDate)
-        NSUserDefaults.standardUserDefaults().synchronize()
         
-        tableView.reloadData()
+        let alert = UIAlertController(title: "Add Event", message: "\(month)-\(day)", preferredStyle: .Alert)
+        
+        alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+            textField.text = ""
+        })
+        
+        let MyCancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) {
+            // Handle Cancel Logic here - when user press cancel button, like
+            action in self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        alert.addAction(MyCancelAction)
+
+        
+        //3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+            let textField = alert.textFields![0] as UITextField
+            let event = Event(withTitle: textField.text!, andDate: defaultDate)
+            let encodedEvent = NSKeyedArchiver.archivedDataWithRootObject(event)
+            self.events.append(encodedEvent)
+            NSUserDefaults.standardUserDefaults().setObject(self.events, forKey: defaultDate)
+            NSUserDefaults.standardUserDefaults().synchronize()
+            self.tableView.reloadData()
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+        
         
     }
         
@@ -117,15 +135,4 @@ class EventsTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if (segue.identifier == "toAdd") {
-            let vc:AddEventViewController = segue.destinationViewController as! AddEventViewController
-            vc.month = month
-            vc.day = day
-        }
-
-    }
-
 }
