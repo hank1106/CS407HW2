@@ -87,7 +87,7 @@ class EventsTableViewController: UITableViewController {
         }
         return cell
     }
-    
+    /*
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         //let storyboard = UIStoryboard(name: "storyboard", bundle: nil);
         //let days = storyboard.instantiateViewControllerWithIdentifier("DaysTableViewController") as! UITableViewController
@@ -95,6 +95,7 @@ class EventsTableViewController: UITableViewController {
         
         self.performSegueWithIdentifier("toAdd", sender: nil)
     }
+    */
 
 
     // Override to support conditional editing of the table view.
